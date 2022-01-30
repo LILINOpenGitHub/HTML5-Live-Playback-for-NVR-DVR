@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      body, table {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      header {
+        width: 80%;
+        height: calc(10% - 40px);
+        margin: 20px 10%;
+      }
+      header > input {
+        margin: 10px;
+      }
+      main {
+        width: 80%;
+        height: calc(90% - 20px);
+        margin: 20px 10%;
+        border: 1px solid;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <input type="button" value="Playback Full #1" onclick="Playback('0x0001')" />
+      <input type="button" value="Playback Quad 1~4" onclick="Playback('0x000f')" />
+      <input type="button" value="Live Full #1" onclick="Live('0x0001')" />
+      <input type="button" value="Live Quad 1~4" onclick="Live('0x000f')" />
+    </header>
+    <main>
+      <iframe id="myiframe" src=""></iframe>
+    </main>
+
+    <script type="text/javascript">
+      var ip_port = "61.216.97.157:9303"; //此範例為80 port 所以省略，如果不是 80 port，則要輸入 port 號
+      var Accesskey = "sCBv2grNiSzU4Or5mdaMmdaMmdaMn9mS000FFC108962"; //此值在 NVR 裡面查看，每一台 NVR 的 Accesskey 不一樣
+
+      //chno value:
+      //channel 1 => 0x0001
+      //hannel 2 => 0x0002
+      //hannel 3 => 0x0004
+      //hannel 4 => 0x0008
+      //hannel 5 => 0x0010
+      //hannel 6 => 0x0020
+      //hannel 7 => 0x0040
+      //hannel 8 => 0x0080
+      //hannel 9 => 0x0100
+      //hannel 10 => 0x0200
+      //hannel 11 => 0x0400
+      //hannel 12 => 0x0800
+      //hannel 13 => 0x1000
+      //hannel 14 => 0x2000
+      //hannel 15 => 0x4000
+      //hannel 16 => 0x8000
+      function Playback(chno) {
+        const d = new Date();
+        d.setMinutes(d.getMinutes() - 2); //設定時間為兩分鐘前
+
+        DoPlayback(chno, d.getFullYear(), d.getMonth() + 1, d.getDate(), d.getHours(), d.getMinutes(), d.getSeconds());
+      }
+
+      function DoPlayback(chno, yyyy, MM, dd, HH, mm, ss) {
+        var _myIframe = document.getElementById("myiframe");
+        _myIframe.setAttribute("height", document.body.clientHeight + "px");
+        _myIframe.src = "about:blank";
+        _myIframe.src = "http://" + ip_port + "/newlang1/crossPlayback.html?ch=" + chno + "&res=hd&date=" + yyyy + "/" + MM + "/" + dd + "&time=" + HH + ":" + mm + ":" + ss + "&Accesskey=" + Accesskey;
+      }
+
+      function Live(chno) {
+        var _myIframe = document.getElementById("myiframe");
+        _myIframe.setAttribute("height", document.body.clientHeight + "px");
+        _myIframe.src = "about:blank";
+        _myIframe.src = "http://" + ip_port + "/newlang1/crossLive.html?ch=" + chno + "&res=hd&Accesskey=" + Accesskey;
+      }
+    </script>
+  </body>
+</html>
