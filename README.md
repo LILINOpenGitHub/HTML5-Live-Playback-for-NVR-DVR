@@ -7,4 +7,5 @@ Product supported: DVR/NVR 5 & 6 series
 Firmware supported: 5.0.28.7551 SVN 7551 and later
 
 # System architecture
+![image](/images/picture1.jpg)
 
