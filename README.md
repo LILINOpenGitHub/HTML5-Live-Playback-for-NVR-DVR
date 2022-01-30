@@ -12,7 +12,9 @@ Firmware supported: 5.0.28.7551 SVN 7551 and later
 1. Visit the Network->Other page via NVR/DVR’s browser.  
 2. Enable HTTP CROS to On setting.  
 <BR>
+
 ![image](/images/step1.png)
+
 <BR>
 3. Copy the access key of the HTTP CROS setting.
 <BR>
