@@ -9,11 +9,11 @@ Firmware supported: 5.0.28.7551 SVN 7551 and later
 # System architecture
 ![image](/images/picture1.jpg)
 
-1.	Visit the Network->Other page via NVR/DVR’s browser.  
-2.	Enable HTTP CROS to On setting.  
-3.	Copy the access key of the HTTP CROS setting.
-4.	Software developer uses the Access key for authenticating simpleLive.html and simplePlayback.html.
-5.	Live video page in HTLM embedded by a third-party web system:
+1. Visit the Network->Other page via NVR/DVR’s browser.  
+2. Enable HTTP CROS to On setting.  
+3. Copy the access key of the HTTP CROS setting.
+4. Software developer uses the Access key for authenticating simpleLive.html and simplePlayback.html.
+5. Live video page in HTLM embedded by a third-party web system:
   
 CGI: http://192.168.0.111/newlang1/simpleLive&ch=0x0001&res=hd&accesskey=ABC123
 
